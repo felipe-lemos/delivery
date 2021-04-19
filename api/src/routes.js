@@ -3,8 +3,8 @@ const express = require('express')
 
 const routes = express.Router()
 
-const PedidoService = require('./services/PedidoService')
+const OrderService = require('./services/OrderService')
 
-routes.post('/cadastrapedido', PedidoService.criaPedido)
+routes.post('/createorder', OrderService.createOrder)
 
 module.exports = routes

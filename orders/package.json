@@ -1,0 +1,11 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "description": "Orders microservice",
+  "main": "index.js",
+  "author": "Felipe Lemos",
+  "license": "MIT",
+  "dependencies": {
+    "kafkajs": "^1.15.0"
+  }
+}

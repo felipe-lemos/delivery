@@ -1,6 +1,5 @@
 const { Kafka } = require('kafkajs')
 
-// Receber mensagens do kafka
 const kafka = new Kafka({
     clientId: 'orders-consumer',
     brokers: ['localhost:9093']

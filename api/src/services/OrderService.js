@@ -1,3 +1,4 @@
+const { response } = require('express')
 const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
@@ -26,6 +27,25 @@ module.exports = {
 
         await producer.disconnect()
         return response.json({ ok: true })
+    },
+    async updateOrder(request, response) {
+        return response.json({ update: true })
+    },
+
+    async deleteOrder(request, response) {
+        return response.json({ delete: true })
+    },
+
+    async getAllOrders(request, response) {
+        return response.json({ all_orders: true })
+    },
+
+    async getOrderById(request, response) {
+        return response.json({ order_by_id: true })
+    },
+
+    async getOrderByClient(request, response) {
+        return response.json({ order_by_client: true })
     }
 
 }

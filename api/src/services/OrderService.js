@@ -2,7 +2,7 @@ const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
     clientId: "order-producer",
-    brokers: ['kafka:9092']
+    brokers: ['localhost:9093']
 })
 
 const producer = kafka.producer()
@@ -15,7 +15,7 @@ module.exports = {
         await producer.send({
             topic: 'test-topic',
             messages: [
-                { value: 'Hello KafkaJS user!' },
+                { value: 'Very first user order!' },
             ],
         })
 

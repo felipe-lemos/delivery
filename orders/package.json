@@ -7,5 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "kafkajs": "^1.15.0"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js"
   }
 }

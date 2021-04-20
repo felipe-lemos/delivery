@@ -1,7 +1,7 @@
 const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
-    clientId: "order-producer",
+    clientId: 'orders-producer',
     brokers: ['localhost:9093']
 })
 
@@ -15,8 +15,13 @@ module.exports = {
         await producer.send({
             topic: 'test-topic',
             messages: [
-                { value: 'Very first user order!' },
+                {
+                    key: 'key1',
+                    value: `{ "id" : "alo alo", "message" : "teste message" }`
+                }
             ],
+        }).catch(error => {
+            console.log(error);
         })
 
         await producer.disconnect()

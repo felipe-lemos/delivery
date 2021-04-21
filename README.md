@@ -1,16 +1,12 @@
-# Microservice com Node.js
+# Microservices with Node.js
 
-    - Utilizando Kafka
-    - Utilizando Node
+    - Using Kafka
+    - Using Node
 
-# Aplicações 
+# Versions 
     - V1:
-        - API Principal
-        - Geracao de Pedidos
-
-
-## Fluxo:
-    - API Principal envia uma mensagem pro serviço de pedidos para gerar o pedido
-    - Microservico de pedidos devolve uma resposta (sincrona ou assincrona)
+        - API 
+        - Orders microservice
+        - Kafka topic producer x consumer
 
  

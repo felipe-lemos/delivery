@@ -8,12 +8,12 @@ const kafka = new Kafka({
 const producer = kafka.producer()
 
 module.exports = {
-    async createOrder(request, response) {
+    async createOrder(req, res) {
 
         const topic = 'orders-topic'
         //inserir aqui o kafka producer.
-        const { orderId, clientId } = request.body
-        await producer.connect()
+        const { orderId, clientId } = req.body
+
         await producer.send({
             topic: topic,
             messages: [
@@ -27,7 +27,7 @@ module.exports = {
         })
 
         await producer.disconnect()
-        return response.json({ ok: true })
+        return res.json({ ok: true })
     },
     async updateOrder(request, response) {
         return response.json({ update: true })

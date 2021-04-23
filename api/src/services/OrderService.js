@@ -1,4 +1,3 @@
-const { response } = require('express')
 const { Kafka } = require('kafkajs')
 
 const kafka = new Kafka({
@@ -11,14 +10,16 @@ const producer = kafka.producer()
 module.exports = {
     async createOrder(request, response) {
 
+        const topic = 'orders-topic'
         //inserir aqui o kafka producer.
+        const { orderId, clientId } = request.body
         await producer.connect()
         await producer.send({
-            topic: 'test-topic',
+            topic: topic,
             messages: [
                 {
                     key: 'key1',
-                    value: `{ "id" : "alo alo", "message" : "teste message" }`
+                    value: `{ "orderId" : "${orderId}", "clientId" : "${clientId}"}`
                 }
             ],
         }).catch(error => {

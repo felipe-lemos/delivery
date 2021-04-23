@@ -9,13 +9,13 @@ const consumer = kafka.consumer({ groupId: 'kafka-group-test' });
 
 const run = async () => {
     await consumer.connect()
-    await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+    await consumer.subscribe({ topic: 'orders-topic', fromBeginning: true })
 
     await consumer.run({
         eachMessage: async ({ message }) => {
-            const mensagem = JSON.parse(message.value.toString())
-            console.log(mensagem.message)
-            console.log(mensagem.id)
+            const orderMsg = JSON.parse(message.value.toString())
+            console.log(orderMsg.orderId)
+            console.log(orderMsg.clientId)
         }
     })
 }
